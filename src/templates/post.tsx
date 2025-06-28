@@ -21,11 +21,7 @@ const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
 export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
-      }
-      html
+      ...PostTemplateFields
     }
   }
 `;

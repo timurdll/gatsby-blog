@@ -29,14 +29,7 @@ export const query = graphql`
   query {
     allMarkdownRemark {
       nodes {
-        frontmatter {
-          title
-          date
-        }
-        excerpt
-        fields {
-          slug
-        }
+        ...PostListFields
       }
     }
   }
