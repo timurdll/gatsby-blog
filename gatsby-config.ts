@@ -6,12 +6,24 @@ const config: GatsbyConfig = {
     siteUrl: "http://localhost:8000",
   },
   plugins: [
-    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
         path: `${__dirname}/src/content/posts`,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              showLineNumbers: true,
+            },
+          },
+        ],
       },
     },
   ],
