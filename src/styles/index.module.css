@@ -1,0 +1,21 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.post {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.post h2 {
+  margin-bottom: 0.3rem;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
