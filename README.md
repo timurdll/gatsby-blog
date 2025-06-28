@@ -1,49 +1,65 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# Gatsby Markdown Blog
 
-## 🚀 Quick start
+Простой статический блог на Gatsby с поддержкой Markdown, TypeScript, CSS Modules, синтаксиса PrismJS и динамической сортировкой постов.
 
-1.  **Create a Gatsby site.**
+## Структура проекта
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+```
+gatsby-blog/
+├── gatsby-browser.ts
+├── gatsby-config.ts
+├── gatsby-node.ts
+├── package.json
+├── package-lock.json
+├── README.md
+├── src
+│   ├── components
+│   │   └── PostList.tsx
+│   ├── content
+│   │   └── posts
+│   │       ├── post-1.md
+│   │       ├── post-2.md
+│   │       └── post-3.md
+│   ├── gatsby-types.d.ts
+│   ├── grapghql
+│   │   └── fragments.ts
+│   ├── hooks
+│   │   └── useSortedPosts.ts
+│   ├── pages
+│   │   ├── 404.tsx
+│   │   └── index.tsx
+│   ├── styles
+│   │   ├── index.module.css
+│   │   └── post.module.css
+│   ├── templates
+│   │   └── post.tsx
+│   └── types
+│       └── index.ts
+└── tsconfig.json
+```
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+## Требования
 
-2.  **Start developing.**
+- Node.js >= 16
+- npm или yarn
 
-    Navigate into your new site’s directory and start it up.
+## Установка
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+1. Клонируйте репозиторий:
 
-3.  **Open the code and start customizing!**
+   ```bash
+   git clone https://github.com/timurdll/gatsby-blog.git
+   cd gatsby-blog
+   ```
 
-    Your site is now running at http://localhost:8000!
+2. Установите зависимости:
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+   ```bash
+   npm install
+   # или
+   yarn install
+   ```
 
-4.  **Learn more**
+## Запуск проекта
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+- `npm run develop` / `yarn develop` — запустить dev-сервер с hot-reload ([http://localhost:8000](http://localhost:8000))
