@@ -1,11 +1,9 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import type { Post } from "../hooks/useSortedPosts";
+import type { Post } from "../types";
 import * as styles from "../styles/index.module.css";
 
-type Props = { posts: Post[] };
-
-export const PostList: React.FC<Props> = React.memo(({ posts }) => {
+export const PostList: React.FC<{ posts: Post[] }> = React.memo(({ posts }) => {
   return (
     <ul>
       {posts.map((post, i) => (

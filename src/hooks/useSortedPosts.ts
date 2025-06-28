@@ -1,19 +1,21 @@
 import { useState, useMemo, useCallback } from "react";
-
-export type Post = {
-  frontmatter: {
-    title: string;
-    date: string;
-  };
-  excerpt: string;
-  fields: { slug: string };
-};
+import type { Post } from "../types";
 
 /**
- * Хук: хранит состояние порядка сортировки,
- * возвращает отсортированный по дате массив и функцию-переключатель.
+ * Кастомный хук для сортировки постов по дате
+ * @param initialPosts - массив постов который надо отсортировать
+ * @returns {{ sortedPosts: Post[]; asc: boolean; toggleOrder: () => void }}
+ *   - sortedPosts: массив постов, отсортированный по дате в соответствии с флагом `asc`
+ *   - asc: флаг сортировки
+ *       • true  — сортировка по возрастанию даты (сначала самые старые)
+ *       • false — сортировка по убыванию даты (сначала самые новые)
+ *   - toggleOrder: функция для переключения порядка сортировки
  */
-export function useSortedPosts(initialPosts: Post[]) {
+export function useSortedPosts(initialPosts: Post[]): {
+  sortedPosts: Post[];
+  asc: boolean;
+  toggleOrder: () => void;
+} {
   const [asc, setAsc] = useState(false);
 
   const sortedPosts = useMemo(() => {

@@ -1,17 +1,18 @@
 import * as React from "react";
-import { graphql, HeadFC, PageProps } from "gatsby";
-import { useSortedPosts, type Post } from "../hooks/useSortedPosts";
-import { PostList } from "../components/PostList";
+import { graphql, HeadFC, PageProps, Link } from "gatsby";
+import { useSortedPosts } from "../hooks/useSortedPosts";
 import * as styles from "../styles/index.module.css";
+import type { IndexPageData } from "../types";
+import { PostList } from "../components/PostList";
 
-type DataProps = {
-  allMarkdownRemark: { nodes: Post[] };
-};
-
-const IndexPage: React.FC<PageProps<DataProps>> = ({ data }) => {
+const IndexPage: React.FC<PageProps<IndexPageData>> = ({ data }) => {
   const { sortedPosts, asc, toggleOrder } = useSortedPosts(
     data.allMarkdownRemark.nodes
   );
+
+  if (sortedPosts.length === 0) {
+    return <p>No posts found.</p>;
+  }
 
   return (
     <main className={styles.container}>

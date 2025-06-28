@@ -2,18 +2,9 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import type { PageProps } from "gatsby";
 import * as styles from "../styles/post.module.css";
+import type { PostTemplateData } from "../types";
 
-type PostProps = {
-  markdownRemark: {
-    frontmatter: {
-      title: string;
-      date: string;
-    };
-    html: string;
-  };
-};
-
-const PostTemplate: React.FC<PageProps<PostProps>> = ({ data }) => {
+const PostTemplate: React.FC<PageProps<PostTemplateData>> = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <main className={styles.container}>
